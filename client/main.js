@@ -3,20 +3,29 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
-});
+Template.post.helpers({
+  comments: function(){
+    return [{
+      numUpVotes: 500,
+      username: "Curtis",
+      commentText: "This is awesome!!"
+    },
+    {
+      numUpVotes: 2000,
+      username: "Ellie",
+      commentText: "This is really awesome!!"
+    }]
+  }
+})
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
-});
+Template.body.helpers({
+    posts: function() {
+        return [{
+            numUpVotes: 1000,
+            title: "Really Popular"
+        }, {
+            numUpVotes: 1500,
+            title: "Popular"
+        }]
+    }
+})
