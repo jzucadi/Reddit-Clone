@@ -1,0 +1,25 @@
+<head>
+    <title>reddit</title>
+</head>
+
+<body>
+    {{> navbar}}
+    <h1 class="text-center">Welcome to Derick's Reddit Clone!</h1>
+    <div class="container">
+        {{> postRow}}
+    </div>
+</body>
+
+
+<template name="postRow">
+  <div class="row">
+    <div class="col-md-1">
+      <div class="row">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+      <div class="row">
+        <i class="fa fa-arrow-down"></i>
+      </div>
+    </div>
+  </div>
+</template>
